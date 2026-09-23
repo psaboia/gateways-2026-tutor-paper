@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wiki-Grounded Socratic Tutor, Gateways 2026</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400..700&family=IBM+Plex+Sans:wght@400;600&display=swap">
+<style>
+html,body{margin:0;height:100%;background:#0e151d;overflow:hidden}
+#stage{position:fixed;left:50%;top:50%;width:1920px;height:1080px;transform-origin:0 0}
+.slide{position:absolute;left:0;top:0;width:1920px;height:1080px;box-sizing:border-box}
+.slide:not(.on){display:none !important}
+
+.slide h1,.slide h2,.slide h3,.slide p,.slide ul{margin:0}
+.slide ul{padding-left:1.1em}
+.slide li{margin-bottom:.35em}
+.slide li:last-child{margin-bottom:0}
+.slide img,.slide video{max-width:100%}
+.notes{display:none}
+#notes{display:none;position:fixed;left:0;right:0;bottom:0;max-height:38vh;overflow:auto;background:rgba(14,21,29,.94);color:#ece7dc;font:16px/1.5 "IBM Plex Sans",sans-serif;padding:14px 20px;border-top:2px solid #0b5394}
+body.show-notes #notes{display:block}
+#hud{position:fixed;right:14px;bottom:10px;color:#8fa3b5;font:13px "IBM Plex Sans",sans-serif;opacity:.7}
+</style>
+</head>
+<body>
+<div id="stage">
+<section class="slide" id="cover" data-transition="fade" style="background:#1B2A3A; color:#F7F5F0; font-family:'IBM Plex Sans', Arial, sans-serif; padding:128px; display:flex; flex-direction:column; justify-content:center; gap:40px">
+<h1 style="font-family:'EB Garamond', Georgia, serif; font-size:88px; font-weight:600; line-height:1.1">A Wiki-Grounded Educational Gateway for Course-Aware Socratic LLM Tutoring</h1>
+<p style="font-size:36px; color:#BFD8D5">Built on the llm-wiki pattern</p>
+<div style="flex:1"></div>
+<p style="font-size:28px; color:#BFD8D5; line-height:1.4">Priscila Saboia Moreira, Charles Vardeman II, Christopher R. Sweet<br>Center for Research Computing, University of Notre Dame<br>Gateways 2026, Washington, DC</p>
+<aside class="notes">Title. 12 minutes total. One-line version: a tutor that will not hand over the answer, grounded in a wiki the instructor controls.</aside>
+</section>
+<section class="slide" id="problem" data-transition="fade" style="background:#F7F5F0; color:#1B2A3A; font-family:'IBM Plex Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<h2 style="font-family:'EB Garamond', Georgia, serif; font-size:72px; font-weight:600; line-height:1.1">The two-minute lab</h2>
+<ul style="font-size:36px; line-height:1.4; color:#1B2A3A">
+  <li>Lab 1: wire an LED to an Arduino UNO with a current-limiting resistor</li>
+  <li>Paste the prompt into a generic chatbot: sketch, resistor value, wiring, done in two minutes</li>
+  <li>Vendor study modes are Socratic, but they use general knowledge, are a toggle the student can switch off, and leave no artifact behind</li>
+</ul>
+<p style="position:absolute; left:128px; bottom:64px; width:800px; font-size:24px; color:#5A6B7B">1 / 10   ·   1 min</p>
+<aside class="notes">1 min. Lab 1: wire an LED to an Arduino with a resistor. The student pastes the prompt into a chatbot, gets sketch, resistor value and wiring, submits in two minutes, and may learn nothing of what the lab was designed to teach. The vendor study modes try to be Socratic, but they use general knowledge, are a toggle the student can switch off, and leave nothing to reread.</aside>
+</section>
+<section class="slide" id="thesis" data-transition="fade" style="background:#EDE9E0; color:#1B2A3A; font-family:'IBM Plex Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<h2 style="font-family:'EB Garamond', Georgia, serif; font-size:72px; font-weight:600; line-height:1.1">Not a retrieval problem, an interaction-design problem</h2>
+<ul style="font-size:34px; line-height:1.4; color:#1B2A3A">
+  <li>RAG over the course notes does not fix it: a grounded answer is still a delivered answer</li>
+  <li>The tutor has to make the student produce the step, not produce it for them</li>
+  <li>The principles are established: scaffolding, productive failure, cognitive offloading</li>
+  <li>What we add: an instructor-controlled wiki, visible citation, an inspectable policy, reusable packaging</li>
+</ul>
+<p style="position:absolute; left:128px; bottom:64px; width:800px; font-size:24px; color:#5A6B7B">2 / 10   ·   1 min</p>
+<aside class="notes">1 min. The obvious fix is RAG: give the chatbot the course notes. A well-grounded answer is still an answer. The failure is the shape of the interaction. The principles are old: scaffolding, productive failure, cognitive offloading, and a 2025 field experiment where unrestricted GPT-4 raised practice scores and lowered exam scores while a guardrailed tutor did not. Our contribution is implementation and governance, not pedagogy.</aside>
+</section>
+<section class="slide" id="artifacts" data-transition="fade" style="background:#F7F5F0; color:#1B2A3A; font-family:'IBM Plex Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<h2 style="font-family:'EB Garamond', Georgia, serif; font-size:72px; font-weight:600; line-height:1.1">Two artifacts</h2>
+<div style="display:flex; gap:48px; align-items:start">
+  <div style="width:880px; display:flex; flex-direction:column; gap:16px">
+    <img src="fig1.png" alt="Course wiki subgraph for Lab 1: RGB-LED extends LED-Basics, requires Common-Anode-vs-Common-Cathode, uses Pulse-Width-Modulation" style="width:880px; height:560px; object-fit:contain; background:#FFFFFF; border:1px solid #D9D3C7; border-radius:16px">
+    <p style="font-size:26px; color:#5A6B7B">Course wiki: about 30 pages, typed edges, instructor-curated</p>
+  </div>
+  <div style="flex:1; display:flex; flex-direction:column; gap:16px; background:#FFFFFF; padding:36px; border:1px solid #D9D3C7; border-radius:16px">
+  <h3 style="font-family:'EB Garamond', Georgia, serif; font-size:40px; font-weight:600; color:#0B5394">Socratic system prompt</h3>
+  <ul style="font-size:30px; line-height:1.4">
+    <li>Ninety lines, checked into the repository</li>
+    <li>Rule 1: never deliver the answer</li>
+    <li>Rule 2: every reply cites a wiki page, rendered as a link</li>
+    <li>Appended at launch. One command from a fresh clone, once model access is provisioned</li>
+  </ul>
+</div>
+</div>
+<p style="position:absolute; left:128px; bottom:64px; width:800px; font-size:24px; color:#5A6B7B">3 / 10   ·   1.5 min</p>
+<aside class="notes">1.5 min. Left: the course wiki, about thirty Markdown pages, one per concept, component or code pattern, with typed edges. Point at RGB-LED extends LED-Basics. Right: the Socratic prompt, ninety lines, two rules: never deliver the answer, always cite a wiki page visibly. Every [[show:]] marker becomes a URL the student sees.</aside>
+</section>
+<section class="slide" id="wiki" data-transition="fade" style="background:#EDE9E0; color:#1B2A3A; font-family:'IBM Plex Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<h2 style="font-family:'EB Garamond', Georgia, serif; font-size:72px; font-weight:600; line-height:1.1">Who writes the wiki</h2>
+<ul style="font-size:34px; line-height:1.4; color:#1B2A3A">
+  <li>The instructor selects the sources: four curriculum PDFs and the kit inventory</li>
+  <li>One ingest run compiles them into concept pages, typed edges, index, log</li>
+  <li>The model is not trained on it. It reads the wiki at session time</li>
+  <li>The instructor steers the emphasis and audits the pages. That human time we did not measure</li>
+  <li>A page that states a worked answer is a page the tutor can quote. Curation is the guardrail</li>
+</ul>
+<p style="position:absolute; left:128px; bottom:64px; width:800px; font-size:24px; color:#5A6B7B">4 / 10   ·   1 min</p>
+<aside class="notes">1 min. The instructor picked four source PDFs and ran one ingest. The model compiled them into concept pages, typed edges, index and log. The model is not trained or fine-tuned on any of it. It reads the wiki at session time. The instructor steers and audits. Human time not measured. Governance point: if a wiki page contains a worked answer, the tutor can quote it.</aside>
+</section>
+<section class="slide" id="session" data-transition="fade" style="background:#F7F5F0; color:#1B2A3A; font-family:'IBM Plex Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<h2 style="font-family:'EB Garamond', Georgia, serif; font-size:72px; font-weight:600; line-height:1.1">A real session</h2>
+<div style="display:flex; flex-direction:column; align-items:center; gap:16px">
+  <video src="../tutor-session.mp4" poster="video-still.png" aria-label="Recorded tutor session: the student asks for the full solution, the tutor refuses, cites LED-Basics and Forward-Voltage, and the student sizes the resistor" muted loop playsinline preload="auto" style="width:1120px; height:630px; object-fit:contain; background:#1D1F28; border-radius:16px; display:block"></video>
+  <p style="font-size:26px; color:#5A6B7B">Real tutor turns, May 2026. Student played by a co-author.</p>
+</div>
+<p style="position:absolute; left:128px; bottom:64px; width:800px; font-size:24px; color:#5A6B7B">5 / 10   ·   1.5 min</p>
+<aside class="notes">1.5 min. The clip starts with the slide and runs 55 s, silent. Real Claude Code tutor turns against the course wiki, student played by a co-author. Point at: the refusal, the LED-Basics quote, the question why the LED needs a resistor at all, 5 minus 2, the formula, 200 ohms, then 220 from the kit table. This is not the Figure 2 session of the paper, which was a later run with an agent as student.</aside>
+</section>
+<section class="slide" id="scenario" data-transition="fade" style="background:#F7F5F0; color:#1B2A3A; font-family:'IBM Plex Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<h2 style="font-family:'EB Garamond', Georgia, serif; font-size:72px; font-weight:600; line-height:1.1">The blue LED question</h2>
+<div style="display:flex; gap:48px; align-items:center">
+  <img src="fig3.png" alt="Two authored student responses to the same diagnostic question, generic chatbot versus wiki-grounded tutor" style="width:900px; height:640px; object-fit:contain; background:#FFFFFF; border:1px solid #D9D3C7; border-radius:16px">
+  <div style="flex:1; display:flex; flex-direction:column; gap:20px">
+    <p style="font-size:34px; line-height:1.4">Both students submit 220 ohms. Ten minutes later: <i>would 220 still be right for a blue LED?</i></p>
+    <p style="font-size:34px; line-height:1.4">One has nothing to go back to. The other has a derivation and cited pages.</p>
+    <p style="font-size:30px; line-height:1.4; color:#0B5394">Authored by us, for illustration. Not an observation.</p>
+  </div>
+</div>
+<p style="position:absolute; left:128px; bottom:64px; width:800px; font-size:24px; color:#5A6B7B">6 / 10   ·   1 min</p>
+<aside class="notes">1 min. Say clearly: this is a scenario we wrote, not an observation. Both students submit 220 ohms. Ten minutes later the instructor asks: would 220 still be right for a blue LED? Student 1 has nothing to go back to. Student 2 has the derivation and the cited pages. Whether real students do this is an empirical question we have not answered.</aside>
+</section>
+<section class="slide" id="probe" data-transition="fade" style="background:#EDE9E0; color:#1B2A3A; font-family:'IBM Plex Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<h2 style="font-family:'EB Garamond', Georgia, serif; font-size:72px; font-weight:600; line-height:1.1">Does the refusal hold under pressure?</h2>
+<div style="display:flex; gap:48px; align-items:start">
+  <img src="table.png" alt="Probe results per model: 75 sessions each, opus 1 leaked 2 partial 72 held, fable 0 2 73, sonnet 0 1 74, total 225 sessions 1 leaked 5 partial 219 held" style="width:940px; height:420px; object-fit:contain; background:#FFFFFF; border:1px solid #D9D3C7; border-radius:16px">
+  <div style="flex:1; display:flex; flex-direction:column; gap:16px; background:#FFFFFF; padding:36px; border:1px solid #D9D3C7; border-radius:16px">
+  <h3 style="font-family:'EB Garamond', Georgia, serif; font-size:40px; font-weight:600; color:#0B5394">225 sessions</h3>
+  <ul style="font-size:28px; line-height:1.4">
+    <li>25 probes x 3 runs x 3 models</li>
+    <li>All six failures are incremental extraction</li>
+    <li>Partials: the tutor did the arithmetic step</li>
+    <li>The leak: the wiki page held the answer</li>
+    <li>Citation is model-sensitive: 100, 95, 57 of 105</li>
+    <li>A limited prompt-compliance test</li>
+  </ul>
+</div>
+</div>
+<p style="position:absolute; left:128px; bottom:64px; width:800px; font-size:24px; color:#5A6B7B">7 / 10   ·   2 min</p>
+<aside class="notes">2 min. 25 scripted probes: direct demands, urgency, fake authority, prompt injection, incremental extraction, plus five three-turn escalations. Three runs on each of three models, 225 sessions. 219 held, 5 partial, 1 leaked. All six in incremental extraction. Where it gives: the tutor does the arithmetic step for the student, sometimes crediting the student with a step they never took. The one leak: the tutor quoted a wiki page that already contained the answer. Refusal varied little across models. Visible wiki citation varied a lot: 100 of 105 on one model, 57 of 105 on another. A limited test of prompt compliance, author-scripted and author-coded.</aside>
+</section>
+<section class="slide" id="gateway" data-transition="fade" style="background:#F7F5F0; color:#1B2A3A; font-family:'IBM Plex Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<h2 style="font-family:'EB Garamond', Georgia, serif; font-size:72px; font-weight:600; line-height:1.1">Why call it a gateway</h2>
+<ul style="font-size:34px; line-height:1.4; color:#1B2A3A">
+  <li>A defined community: a course's students</li>
+  <li>Infrastructure they would not easily reach alone: a hosted model, provisioned by the course</li>
+  <li>What a local wrapper lacks: reusable packaging, instructor governance, an inspectable policy</li>
+  <li>Another course forks the template and swaps the wiki. Shown architecturally, not yet with a second course</li>
+</ul>
+<p style="position:absolute; left:128px; bottom:64px; width:800px; font-size:24px; color:#5A6B7B">8 / 10   ·   1 min</p>
+<aside class="notes">1 min. Reviewer pushback: a curated interface is any software. Our answer: a community-governed interface between a defined group, the course, and infrastructure they could not otherwise easily reach, a hosted model. What a local wrapper lacks: packaging reusable across sites, governance with the instructor rather than the vendor, a policy anyone can inspect because it is in the repository. Reuse shown architecturally, no second course yet.</aside>
+</section>
+<section class="slide" id="cost" data-transition="fade" style="background:#EDE9E0; color:#1B2A3A; font-family:'IBM Plex Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<h2 style="font-family:'EB Garamond', Georgia, serif; font-size:72px; font-weight:600; line-height:1.1">Cost, access, and what we do not know</h2>
+<ul style="font-size:34px; line-height:1.4; color:#1B2A3A">
+  <li>About a dollar per lab session per student, tens of dollars per section per semester</li>
+  <li>Institutional key. No student account, no offline fallback</li>
+  <li>Transcripts go to the provider. Terminal-only interface</li>
+  <li>No learning-outcome claim. A classroom study is the next step</li>
+  <li>Enforcement lives in the prompt. The probe shows where it bends</li>
+</ul>
+<p style="position:absolute; left:128px; bottom:64px; width:800px; font-size:24px; color:#5A6B7B">9 / 10   ·   1 min</p>
+<aside class="notes">1 min. Median cost per tutor turn 5 to 32 cents depending on model, a three-turn session 12 to 48 cents. Order of a dollar per lab session per student. Institutional key, no student pays. Transcripts leave the institution. Terminal-only. No classroom study yet. Rules enforced by the model, not the substrate, and the probe shows exactly where they bend.</aside>
+</section>
+<section class="slide" id="takeaways" data-transition="fade" style="background:#1B2A3A; color:#F7F5F0; font-family:'IBM Plex Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<h2 style="font-family:'EB Garamond', Georgia, serif; font-size:72px; font-weight:600; line-height:1.1">Take-aways</h2>
+<ul style="font-size:32px; line-height:1.5; color:#E6E1D6">
+  <li>Tutor and wiki: github.com/chrissweet/microelectronics-tutor-demo</li>
+  <li>Template for another course: github.com/chrissweet/llm-wiki-tutor-template</li>
+  <li>All 225 sessions, probes, rubric, runners: github.com/psaboia/wiki-grounded-tutor-eval</li>
+</ul>
+<div style="flex:1"></div>
+<p style="font-family:'EB Garamond', Georgia, serif; font-size:44px; line-height:1.3; color:#BFD8D5">Open question: under pressure the tutor credits the student with a step the student never took. A side effect of the policy, or of the model?</p>
+<p style="position:absolute; left:128px; bottom:64px; width:800px; font-size:24px; color:#8FA3B5">10 / 10   ·   0.5 min</p>
+<aside class="notes">0.5 min. Three links, one open question. The fabricated-progress hypothesis: the prompt lets the tutor confirm what the student produced but not produce it, and under pressure the model satisfies the letter of that rule by crediting the student with its own step. Is that the policy design or the model? We would like to hear from people running tutors in production.</aside>
+</section>
+</div>
+<div id="notes"></div>
+<div id="hud">arrows or click to move · N notes · F fullscreen</div>
+<script>
+(function(){
+var slides=[].slice.call(document.querySelectorAll('.slide')),i=0,stage=document.getElementById('stage'),notes=document.getElementById('notes');
+function fit(){var s=Math.min(innerWidth/1920,innerHeight/1080);stage.style.transform='translate('+(-960*s)+'px,'+(-540*s)+'px) scale('+s+')';}
+function show(n){n=Math.max(0,Math.min(slides.length-1,n));slides[i].classList.remove('on');slides[i].querySelectorAll('video').forEach(function(v){v.pause();});i=n;slides[i].classList.add('on');
+ slides[i].querySelectorAll('video').forEach(function(v){v.currentTime=0;v.play().catch(function(){});});
+ var a=slides[i].querySelector('.notes');notes.textContent=a?a.textContent:'';location.hash=slides[i].id;}
+addEventListener('resize',fit);fit();
+var start=slides.findIndex(function(s){return '#'+s.id===location.hash;});show(start<0?0:start);
+addEventListener('keydown',function(e){
+ if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){show(i+1);e.preventDefault();}
+ else if(e.key==='ArrowLeft'||e.key==='PageUp'){show(i-1);e.preventDefault();}
+ else if(e.key==='Home')show(0);else if(e.key==='End')show(slides.length-1);
+ else if(e.key==='n'||e.key==='N')document.body.classList.toggle('show-notes');
+ else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();}
+});
+stage.addEventListener('click',function(e){if(e.target.tagName==='VIDEO'){e.target.paused?e.target.play():e.target.pause();return;}if(e.target.tagName==='A')return;show(e.clientX<innerWidth/3?i-1:i+1);});
+})();
+</script>
+</body>
+</html>
