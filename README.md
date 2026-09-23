@@ -12,7 +12,7 @@ This repository holds the paper, the talk, and a map of where everything else li
 | What | Where |
 |------|-------|
 | Paper, revised version submitted 2026-09-07 (6 pages, ACM sigconf) | [`paper.pdf`](paper.pdf) in this repo. The ACM version will be linked here once published. |
-| Talk slides | [`slides.pdf`](slides.pdf) in this repo (see below). |
+| Talk slides | [Live deck on claude.ai](https://claude.ai/artifact/45w4TvUKdLShAMsbnNDacA), the version presented, with the video clip playing on its slide. [`slides.pdf`](slides.pdf) is a PDF export for download. |
 | Video clip shown in the talk, 55 s, silent | [`tutor-session.mp4`](tutor-session.mp4) in this repo. Real tutor turns from a Claude Code session against the course wiki, May 2026. The student was played by a co-author. |
 | The tutor: launcher, Socratic prompt, course wiki | https://github.com/chrissweet/microelectronics-tutor-demo (wiki at `microelectronics-tutor-demo.wiki`) |
 | Template a new course forks | https://github.com/chrissweet/llm-wiki-tutor-template |
@@ -26,4 +26,4 @@ Generic chatbots answer lab assignments well and, in doing so, remove the reason
 
 ## Slides
 
-`slides.pdf` is exported from the presentation deck. To refresh it, download the deck as PDF and replace the file.
+The deck is presented from https://claude.ai/artifact/45w4TvUKdLShAMsbnNDacA. `slides.pdf` is its PDF export. To refresh it, download the deck as PDF and replace the file.
