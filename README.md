@@ -13,7 +13,7 @@ This repository holds the talk and a map of where everything else lives. The cod
 |------|-------|
 | Paper | Forthcoming in the Gateways 2026 proceedings (ACM, open access). The link will be added here once published. |
 | Talk slides | [`slides/`](https://psaboia.github.io/gateways-2026-tutor-paper/slides/) on the landing page: the deck as presented, 11 slides, arrow keys or click to move, N for speaker notes, F for fullscreen. The video plays on its slide. |
-| Video clip shown in the talk, 55 s, silent | [`tutor-session.mp4`](tutor-session.mp4) in this repo. Real tutor turns from a Claude Code session against the course wiki, May 2026. The student was played by a co-author. |
+| Video clip shown in the talk, 55 s, silent | [`tutor-session.mp4`](tutor-session.mp4) in this repo. Tutor turns generated live by the Claude Code tutor against the course wiki, May 2026. The student was role-played by a co-author, not a student. |
 | The tutor: launcher, Socratic prompt, course wiki | https://github.com/chrissweet/microelectronics-tutor-demo (wiki at `microelectronics-tutor-demo.wiki`) |
 | Template a new course forks | https://github.com/chrissweet/llm-wiki-tutor-template |
 | Evaluation supplement: all 225 probe sessions, raw JSON, probes, coding rubric, runners | https://github.com/psaboia/wiki-grounded-tutor-eval |
