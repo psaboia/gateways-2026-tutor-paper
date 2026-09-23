@@ -5,13 +5,13 @@ Gateways 2026, Washington, DC, September 23 to 25, 2026. Paper #29.
 
 Landing page: https://psaboia.github.io/gateways-2026-tutor-paper/
 
-This repository holds the paper, the talk, and a map of where everything else lives. The code and the data are in the repositories below, not here.
+This repository holds the talk and a map of where everything else lives. The code and the data are in the repositories below, not here.
 
 ## What is where
 
 | What | Where |
 |------|-------|
-| Paper, revised version submitted 2026-09-07 (6 pages, ACM sigconf) | [`paper.pdf`](paper.pdf) in this repo. The ACM version will be linked here once published. |
+| Paper | Forthcoming in the Gateways 2026 proceedings (ACM, open access). The link will be added here once published. |
 | Talk slides | [`slides/`](https://psaboia.github.io/gateways-2026-tutor-paper/slides/) on the landing page: the deck as presented, 11 slides, arrow keys or click to move, N for speaker notes, F for fullscreen. The video plays on its slide. |
 | Video clip shown in the talk, 55 s, silent | [`tutor-session.mp4`](tutor-session.mp4) in this repo. Real tutor turns from a Claude Code session against the course wiki, May 2026. The student was played by a co-author. |
 | The tutor: launcher, Socratic prompt, course wiki | https://github.com/chrissweet/microelectronics-tutor-demo (wiki at `microelectronics-tutor-demo.wiki`) |
