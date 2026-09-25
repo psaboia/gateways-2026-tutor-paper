@@ -17,6 +17,8 @@ This repository holds the talk and a map of where everything else lives. The cod
 | The tutor: launcher, Socratic prompt, course wiki | https://github.com/chrissweet/microelectronics-tutor-demo (wiki at `microelectronics-tutor-demo.wiki`) |
 | Template a new course forks | https://github.com/chrissweet/llm-wiki-tutor-template |
 | Evaluation supplement: all 225 probe sessions, raw JSON, probes, coding rubric, runners | https://github.com/psaboia/wiki-grounded-tutor-eval |
+| The llm-wiki memory substrate the course wiki is built on, newest version, as a plugin | https://github.com/LA3D-LLM-Agents/llm-wiki-colab |
+| The first version of the substrate, a GitHub template | https://github.com/crcresearch/llm-wiki-memory-template |
 | Companion paper on the memory substrate, "Beyond Memory" | https://doi.org/10.5281/zenodo.21213176 |
 | Course curriculum, Purdue SCALE | https://www.scale4me.org/scale-curriculum/introduction-to-engineering-with-microelectronics-curriculum-plan |
 
